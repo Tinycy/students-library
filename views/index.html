@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>智游教育--学生管理系统</title>
+	</head>
+	<body>
+		<h3>智游教育--学生管理系统</h3>
+		
+		<button onclick="location.href='http://localhost:3000/add.html'">添加学生信息</button>
+		<!--<button onclick="location.href='/api/student/msg'">
+		测试 验证服务器没有问题
+		</button>-->
+		<table border="1" cellspacing="7" cellpadding="10">
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+				<th>手机号</th>
+				<th>电子邮箱</th>
+				<th>操作选项</th>
+			</tr>
+			{{each students as aStudent index}}
+			
+				<tr>
+				 	<td>{{aStudent.name}}</td>
+				 	<td>{{aStudent.isMale == true ? '男' : '女'}}</td>
+				 	<td>{{aStudent.age}}</td>
+				 	<td>{{aStudent.phone}}</td>
+				 	<td>{{aStudent.email}}</td>
+				 	<td>
+				 		 <button onclick="myEditStudentMsg('{{aStudent.id}}') ">修改</button>
+				 		 <button>删除</button>
+				 	</td>
+				</tr>
+			{{/each}}
+			
+		</table>
+	</body>
+	<script src="/librarys/jquery.js"></script>
+	<script src="/js/edit.js"></script>
+</html>

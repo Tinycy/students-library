@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>智游教育--修改学生信息</title>
+	</head>
+	<body>
+			
+			<form action="http://localhost:3000/api/student/add" method="post">
+				<fieldset id="addMsg">
+					<lengend>修改学生信息</lengend>
+					<br />
+					<label for="name">姓名：</label>
+					<input type="text" name="name" id="name" placeholder="请输入姓名" required="required" value="{{name}}"/>
+					<br />
+					<input type="radio" name="isMale" id="male" checked="{{isMale ? 'checked' : ''}}" value = true  autocomplete="off"/>
+					<label for="male">男</label>
+					<input type="radio" name="isMale" id="female" checked="{{isMale ? '' : 'checked'}}" value=false  autocomplete="off"/>
+					<label for="female">女</label>
+					
+					<!--年龄-->
+					<br />
+					<label for="age">年龄：</label>
+					<select name="age" >
+						<option value="17" selected="{{age == 17 ? 'selected' : ''}}">17</option>
+						<option value="18" selected="{{age == 18 ? 'selected' : ''}}">18</option>
+						<option value="19" selected="{{age == 19 ? 'selected' : ''}}">19</option>
+						<option value="20" selected="{{age == 20 ? 'selected' : ''}}">20</option>
+						<option value="21" selected="{{age == 21 ? 'selected' : ''}}">21</option>
+						<option value="22" selected="{{age == 22 ? 'selected' : ''}}">22</option>
+						<option value="23" selected="{{age == 23 ? 'selected' : ''}}">23</option>
+						<option value="24" selected="{{age == 24 ? 'selected' : ''}}">24</option>
+						<option value="25" selected="{{age == 25 ? 'selected' : ''}}">25</option>
+						<option value="26" selected="{{age == 26 ? 'selected' : ''}}">26</option>
+						<option value="27" selected="{{age == 27 ? 'selected' : ''}}">27</option>
+						<option value="28" selected="{{age == 28 ? 'selected' : ''}}">28</option>
+					</select>
+					<br />
+					
+					<!--手机号-->
+					<label for="phone" '>手机号：</label>
+					
+					<input type="text" name="phone"	id="phone" placeholder="请输入手机号" value='{{phone}}'/>
+					
+					<br />
+					<!--邮箱-->
+					<label for="email" >邮箱：</label>
+					<input type="text" name="email" id="email" placeholder="请输入邮箱" value="{{email}}"/>
+					
+					<br />
+					<label for="description">备注:</label>
+					<br />
+					<textarea name="description" id="" cols="30" rows="10" placeholder="请输入备注信息" value="{{description}}"></textarea>
+				</fieldset>
+				
+			
+					<input type="submit"  value="提交" />
+					
+					
+			</form>
+		
+		
+	</body>
+</html>

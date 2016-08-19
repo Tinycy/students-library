@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>智游教育--添加学生信息</title>
+		
+	</head>
+	<body>
+			
+			<!--
+				注意：由于该页面是通过localhost加载的，所以此处在访问服务器的时候要使用localhost，而不能使用127.0.0.1,否则会出现跨域资源拦截。
+			-->
+			<form action="http://localhost:3000/api/student/add" method="post">
+				<fieldset id="addMsg">
+					<lengend>添加学生信息</lengend>
+					<br />
+					<label for="name">姓名：</label>
+					<input type="text" name="name" id="name" placeholder="请输入姓名" required="required" />
+					<br />
+					<input type="radio" name="isMale" id="male" checked="checked" value=true />
+					<label for="male">男</label>
+					<input type="radio" name="isMale" id="female" value=false />
+					<label for="female">女</label>
+					
+					<!--年龄-->
+					<br />
+					<label for="age">年龄：</label>
+					<select name="age" id="">
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+					</select>
+					<br />
+					
+					<!--手机号-->
+					<label for="phone">手机号：</label>
+					
+					<input type="text" name="phone"	id="phone" placeholder="请输入手机号"/>
+					
+					<br />
+					<!--邮箱-->
+					<label for="email">邮箱：</label>
+					<input type="text" name="email" id="email" placeholder="请输入邮箱" />
+					
+					<br />
+					<label for="description">备注:</label>
+					<br />
+					<textarea name="description" id="" cols="30" rows="10" placeholder="请输入备注信息"></textarea>
+				</fieldset>
+				
+			
+					<input type="submit" value="提交" />
+					
+					
+			</form>
+	</body>
+	<script src="librarys/jquery.js"></script>
+		<script src="js/add.js"></script>
+</html>
