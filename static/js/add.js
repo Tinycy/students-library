@@ -1,7 +1,7 @@
 
 $('form').submit(function(e){
 		e.preventDefault()
-		//alert('xxxxxx')
+//		alert('xxxxxx')
 		
 		var data = new FormData(this)
 		
@@ -19,8 +19,6 @@ $('form').submit(function(e){
 			else{
 				alert(response.msg)
 				location.href='/'
-				
-				
 			}
 			
 			}

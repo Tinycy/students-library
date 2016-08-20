@@ -7,7 +7,7 @@
 	<body>
 		<h3>智游教育--学生管理系统</h3>
 		
-		<button onclick="location.href='http://localhost:3000/add.html'">添加学生信息</button>
+		<button onclick="location.href='/add.html'">添加学生信息</button>
 		<!--<button onclick="location.href='/api/student/msg'">
 		测试 验证服务器没有问题
 		</button>-->
@@ -30,7 +30,7 @@
 				 	<td>{{aStudent.email}}</td>
 				 	<td>
 				 		 <button onclick="myEditStudentMsg('{{aStudent.id}}') ">修改</button>
-				 		 <button>删除</button>
+				 		 <button onclick="myDeleteStudentMsg('{{aStudent.id}}')">删除</button>
 				 	</td>
 				</tr>
 			{{/each}}

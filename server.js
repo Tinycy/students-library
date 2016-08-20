@@ -25,7 +25,7 @@ const express = require("express"),
 		//调用connection获取数据库对象
 		var db = mongoose.connection
 		
-		//构造函数，定义一个数据模型
+		//构造函数，定义一个数据模型，
 		var Student = mongoose.model('student',{
 				name:String,
 				age:Number,
@@ -47,10 +47,10 @@ const express = require("express"),
 		//数据库在操作之前要先打开，监听数据库是否打开 
 		db.on('open',(err)=>{
 			if(err){
-				 console.log('服务器打开失败',err)
+				 console.log('数据库打开失败',err)
 			}
 			else{
-				console.log('服务器开始运行了！')
+				console.log('数据库打开成功！')
 			}
 		})
 		
@@ -75,7 +75,7 @@ const express = require("express"),
 								
 								//取出数组中的数据对象转化为实际对象。
 								
-								var obj = data[0].toObject()
+//								var obj = data[0].toObject()
 								
 								//map()遍历数组，参与指定的函数运算。函数内的参数遍历到的数组中的元素。(可以在函数结束位置return参与运算后的元素,把参与运算后的元素放入新的数组，并返回该新数组)
 							var newData =	data.map(function(item){
@@ -172,6 +172,52 @@ const express = require("express"),
 					})
 					
 		})
+		
+		/*
+		 * API更新某一个学生信息。
+		 */
+		
+		app.post('/api/student/update/:id',(request,response)=>{
+						var id = request.params.id
+						
+						//console.log(">>>>>>>>>>" + id)
+						
+						//findByIdAndUpdate（）查找某一个信息，并更新该信息
+						//参数1：数据的id
+						//参数2：更新的数据
+						//参数3：更新后的回调函数
+						Student.findByIdAndUpdate(id,request.body,(err)=>{
+									if(err){
+											response.json({result:0,msg:'系统异常，更新失败'})
+											
+									}
+									else{
+										response.json({result:1,msg:'更新成功'})
+									}
+						
+						})
+		})
+		
+		/*
+		 * 删除某一个学生信息
+		 */
+		app.get('/api/student/delete',(request,response)=>{
+			var id = request.query.id
+		
+			Student.findByIdAndRemove(id,(err)=>{
+			if(err){
+											response.json({result:0,msg:'系统异常，删除失败'})
+											
+									}
+									else{
+										response.json({result:1,msg:'删除成功'})
+									}
+			
+			})
+		
+		})
+		
+		
 		
 	
 		app.listen(3000,function(){
